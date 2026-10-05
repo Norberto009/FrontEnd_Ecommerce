@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/maynor/Laravel_BootcampSFJ35/FrontEnd/frontend_ecomerse/app/not-found.tsx"],"sourcesContent":["import Link from \"next/link\";\n\nexport default function NotFound() {\n  return (\n    <div className=\"mx-auto max-w-md space-y-4 py-16 text-center\">\n      <p className=\"text-5xl font-bold text-blue-700\">404</p>\n      <h1 className=\"text-xl font-semibold\">No encontramos lo que buscas</h1>\n      <Link href=\"/\" className=\"inline-block font-medium text-blue-700 hover:underline\">\n        Volver al catálogo\n      </Link>\n    </div>\n  );\n}\n"],"names":["NotFound","className","href"],"mappings":";;;;;AAAA;;;AAEe,SAASA;IACtB,qBACE,8OAAC;QAAIC,WAAU;;0BACb,8OAAC;gBAAEA,WAAU;0BAAmC;;;;;;0BAChD,8OAAC;gBAAGA,WAAU;0BAAwB;;;;;;0BACtC,8OAAC,0LAAI;gBAACC,MAAK;gBAAID,WAAU;0BAAyD;;;;;;;;;;;;AAKxF"}}]
+}

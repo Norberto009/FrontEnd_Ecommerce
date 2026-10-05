@@ -1,0 +1,16 @@
+{
+  "node": {
+    "40b3c4592c72dcead25a62199ddc442df2854b90d3": {
+      "workers": {
+        "app/register/page": {
+          "moduleId": "[project]/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions/auth.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "registerAction",
+      "filename": "app/actions/auth.ts"
+    }
+  },
+  "edge": {}
+}
