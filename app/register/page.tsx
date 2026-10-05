@@ -12,10 +12,10 @@ export default async function RegisterPage({ searchParams }: PageProps<"/registe
   if (await getCurrentUser()) redirect(next);
 
   return (
-    <div className="mx-auto max-w-md space-y-6 rounded-xl border border-slate-200 bg-white p-8">
+    <div className="mx-auto max-w-md space-y-6 rounded-xl border border-line bg-surface p-8">
       <div className="space-y-1 text-center">
         <h1 className="text-2xl font-bold">Crear cuenta</h1>
-        <p className="text-sm text-slate-600">Regístrate para comprar en la tienda.</p>
+        <p className="text-sm text-muted">Regístrate para comprar en la tienda.</p>
       </div>
       <RegisterForm next={next === "/" ? undefined : next} />
     </div>

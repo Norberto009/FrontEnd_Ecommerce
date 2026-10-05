@@ -6,9 +6,9 @@ import { AddToCartButton } from "./AddToCartButton";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+    <article className="flex flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-sm transition hover:shadow-md">
       <Link href={`/products/${product.id}`} className="block">
-        <div className="relative aspect-[4/3] bg-slate-100">
+        <div className="relative aspect-[4/3] bg-sunken">
           {product.image_url && (
             <Image
               src={product.image_url}
@@ -26,12 +26,12 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         <div className="flex-1 space-y-1">
           <Link
             href={`/products/${product.id}`}
-            className="line-clamp-2 font-semibold text-slate-900 hover:text-blue-700"
+            className="line-clamp-2 font-semibold text-ink hover:text-primary-strong"
           >
             {product.name}
           </Link>
-          <p className="text-lg font-bold text-slate-900">{formatPrice(product.price)}</p>
-          <p className={`text-xs ${product.stock > 0 ? "text-slate-500" : "text-red-600"}`}>
+          <p className="text-lg font-bold text-ink">{formatPrice(product.price)}</p>
+          <p className={`text-xs ${product.stock > 0 ? "text-muted" : "text-danger"}`}>
             {product.stock > 0 ? `${product.stock} disponibles` : "Agotado"}
           </p>
         </div>

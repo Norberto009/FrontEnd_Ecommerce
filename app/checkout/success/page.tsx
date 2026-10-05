@@ -37,7 +37,7 @@ export default async function CheckoutSuccessPage({
         <h1 className="text-3xl font-bold tracking-tight">
           {isPaid ? "¡Compra confirmada!" : "¡Orden registrada!"}
         </h1>
-        <p className="text-slate-600">
+        <p className="text-muted">
           Orden #{order.id} · <OrderStatusBadge status={order.status} />
         </p>
       </div>
@@ -49,12 +49,12 @@ export default async function CheckoutSuccessPage({
         </Alert>
       )}
 
-      <ul className="divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white text-left">
+      <ul className="divide-y divide-line-soft rounded-xl border border-line bg-surface text-left">
         {order.items?.map((item) => (
           <li key={item.id} className="flex justify-between gap-4 px-5 py-3 text-sm">
             <span>
               {item.product_name ?? `Producto #${item.product_id}`}{" "}
-              <span className="text-slate-400">× {item.quantity}</span>
+              <span className="text-faint">× {item.quantity}</span>
             </span>
             <span className="font-medium">{formatPrice(item.subtotal, order.currency)}</span>
           </li>
@@ -68,13 +68,13 @@ export default async function CheckoutSuccessPage({
       <div className="flex justify-center gap-3">
         <Link
           href="/orders"
-          className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+          className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-strong"
         >
           Ver mis órdenes
         </Link>
         <Link
           href="/"
-          className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium hover:bg-slate-100"
+          className="rounded-lg border border-line-strong px-4 py-2 text-sm font-medium hover:bg-sunken"
         >
           Seguir comprando
         </Link>

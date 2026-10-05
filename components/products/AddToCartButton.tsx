@@ -33,7 +33,7 @@ export function AddToCartButton({ product }: { product: Product }) {
       type="button"
       onClick={handleClick}
       disabled={unavailable || soldOut || maxReached}
-      className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+      className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-strong disabled:cursor-not-allowed disabled:bg-sunken disabled:text-muted"
     >
       {!unavailable && !soldOut && !maxReached && !justAdded && (
         <svg

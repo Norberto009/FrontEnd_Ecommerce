@@ -15,9 +15,9 @@ export function CheckoutForm() {
 
   if (items.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center">
-        <p className="text-slate-600">No hay productos para pagar.</p>
-        <Link href="/" className="mt-4 inline-block font-medium text-blue-700 hover:underline">
+      <div className="rounded-xl border border-dashed border-line-strong bg-surface p-10 text-center">
+        <p className="text-muted">No hay productos para pagar.</p>
+        <Link href="/" className="mt-4 inline-block font-medium text-primary-strong hover:underline">
           Ir al catálogo
         </Link>
       </div>
@@ -38,21 +38,21 @@ export function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-xl border border-slate-200 bg-white p-6">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-xl border border-line bg-surface p-6">
       {result.error && <Alert>{result.error}</Alert>}
 
-      <ul className="divide-y divide-slate-100">
+      <ul className="divide-y divide-line-soft">
         {items.map(({ product, quantity }) => (
           <li key={product.id} className="flex justify-between gap-4 py-3 text-sm">
-            <span className="text-slate-700">
-              {product.name} <span className="text-slate-400">× {quantity}</span>
+            <span className="text-ink-soft">
+              {product.name} <span className="text-faint">× {quantity}</span>
             </span>
             <span className="font-medium">{formatPrice(product.price * quantity)}</span>
           </li>
         ))}
       </ul>
 
-      <div className="flex justify-between border-t border-slate-200 pt-4 text-lg font-bold">
+      <div className="flex justify-between border-t border-line pt-4 text-lg font-bold">
         <span>Total</span>
         <span>{formatPrice(total)}</span>
       </div>
@@ -60,11 +60,11 @@ export function CheckoutForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full rounded-lg bg-blue-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:opacity-60"
+        className="w-full rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-strong disabled:opacity-60"
       >
         {isPending ? "Creando orden..." : "Confirmar compra"}
       </button>
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-muted">
         Se registrará tu orden con estos productos. El stock se reserva al confirmarla.
       </p>
     </form>

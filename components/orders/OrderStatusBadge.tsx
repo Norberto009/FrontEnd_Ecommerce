@@ -1,16 +1,16 @@
 import type { OrderStatus } from "@/types";
 
 const config: Record<OrderStatus, { label: string; className: string }> = {
-  pending: { label: "Pendiente de pago", className: "bg-amber-100 text-amber-800" },
-  paid: { label: "Pagada", className: "bg-emerald-100 text-emerald-800" },
-  cancelled: { label: "Cancelada", className: "bg-slate-200 text-slate-700" },
-  failed: { label: "Pago fallido", className: "bg-red-100 text-red-800" },
+  pending: { label: "Pendiente de pago", className: "bg-primary-soft text-ink" },
+  paid: { label: "Pagada", className: "bg-success-tint text-success-strong" },
+  cancelled: { label: "Cancelada", className: "bg-skeleton text-ink-soft" },
+  failed: { label: "Pago fallido", className: "bg-danger-tint text-danger-strong" },
 };
 
 export function OrderStatusBadge({ status }: { status: OrderStatus }) {
   const { label, className } = config[status] ?? {
     label: status,
-    className: "bg-slate-100 text-slate-700",
+    className: "bg-sunken text-ink-soft",
   };
   return (
     <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${className}`}>{label}</span>

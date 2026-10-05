@@ -10,9 +10,9 @@ export function CartView() {
 
   if (items.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center">
-        <p className="text-slate-600">No hay productos, puedes agregar productos a tu Carrito.</p>
-        <Link href="/" className="mt-4 inline-block font-medium text-blue-700 hover:underline">
+      <div className="rounded-xl border border-dashed border-line-strong bg-surface p-10 text-center">
+        <p className="text-muted">No hay productos, puedes agregar productos a tu Carrito.</p>
+        <Link href="/" className="mt-4 inline-block font-medium text-primary-strong hover:underline">
           Ver Productos
         </Link>
       </div>
@@ -21,10 +21,10 @@ export function CartView() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
-      <ul className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+      <ul className="divide-y divide-line rounded-xl border border-line bg-surface">
         {items.map(({ product, quantity }) => (
           <li key={product.id} className="flex gap-4 p-4">
-            <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-lg bg-slate-100">
+            <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-lg bg-sunken">
               {product.image_url && (
                 <Image
                   src={product.image_url}
@@ -38,19 +38,19 @@ export function CartView() {
 
             <div className="flex flex-1 flex-col justify-between gap-2">
               <div className="flex justify-between gap-3">
-                <Link href={`/products/${product.id}`} className="font-medium text-slate-900 hover:text-blue-700">
+                <Link href={`/products/${product.id}`} className="font-medium text-ink hover:text-primary-strong">
                   {product.name}
                 </Link>
                 <span className="font-semibold">{formatPrice(product.price * quantity)}</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center rounded-lg border border-slate-300">
+                <div className="flex items-center rounded-lg border border-line-strong">
                   <button
                     type="button"
                     aria-label={`Quitar una unidad de ${product.name}`}
                     onClick={() => setQuantity(product.id, quantity - 1)}
-                    className="px-3 py-1 text-slate-600 hover:bg-slate-100"
+                    className="px-3 py-1 text-muted hover:bg-sunken"
                   >
                     −
                   </button>
@@ -62,7 +62,7 @@ export function CartView() {
                     aria-label={`Agregar una unidad de ${product.name}`}
                     onClick={() => setQuantity(product.id, quantity + 1)}
                     disabled={quantity >= product.stock}
-                    className="px-3 py-1 text-slate-600 hover:bg-slate-100 disabled:opacity-40"
+                    className="px-3 py-1 text-muted hover:bg-sunken disabled:opacity-40"
                   >
                     +
                   </button>
@@ -70,7 +70,7 @@ export function CartView() {
                 <button
                   type="button"
                   onClick={() => removeFromCart(product.id)}
-                  className="inline-flex items-center gap-1 text-sm text-red-600 hover:underline"
+                  className="inline-flex items-center gap-1 text-sm text-danger hover:underline"
                 >
                   <svg
                     aria-hidden
@@ -91,19 +91,19 @@ export function CartView() {
         ))}
       </ul>
 
-      <aside className="h-fit space-y-4 rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="font-semibold text-slate-900">Resumen</h2>
-        <div className="flex justify-between text-sm text-slate-600">
+      <aside className="h-fit space-y-4 rounded-xl border border-line bg-surface p-5">
+        <h2 className="font-semibold text-ink">Resumen</h2>
+        <div className="flex justify-between text-sm text-muted">
           <span>Subtotal</span>
           <span>{formatPrice(total)}</span>
         </div>
-        <div className="flex justify-between border-t border-slate-200 pt-3 text-lg font-bold">
+        <div className="flex justify-between border-t border-line pt-3 text-lg font-bold">
           <span>Total</span>
           <span>{formatPrice(total)}</span>
         </div>
         <Link
           href="/checkout"
-          className="block rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-blue-800"
+          className="block rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-primary-strong"
         >
           Continuar con la compra
         </Link>

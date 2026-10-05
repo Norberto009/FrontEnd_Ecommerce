@@ -47,16 +47,16 @@ export function LoginForm({ next }: { next?: string }) {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:opacity-60"
+        className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-strong disabled:opacity-60"
       >
         {isPending ? "Ingresando..." : "Iniciar sesión"}
       </button>
 
-      <p className="text-center text-sm text-slate-600">
+      <p className="text-center text-sm text-muted">
         ¿No tienes cuenta?{" "}
         <Link
           href={next ? `/register?next=${encodeURIComponent(next)}` : "/register"}
-          className="font-medium text-blue-700 hover:underline"
+          className="font-medium text-primary-strong hover:underline"
         >
           Regístrate
         </Link>

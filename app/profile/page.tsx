@@ -21,21 +21,21 @@ export default async function ProfilePage() {
       <div className="flex items-center gap-4">
         <div
           aria-hidden
-          className="flex size-16 items-center justify-center rounded-full bg-blue-700 text-2xl font-bold text-white"
+          className="flex size-16 items-center justify-center rounded-full bg-primary text-2xl font-bold text-white"
         >
           {user.name.charAt(0).toUpperCase()}
         </div>
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Mi perfil</h1>
-          <p className="text-slate-600">Datos de tu cuenta</p>
+          <p className="text-muted">Datos de tu cuenta</p>
         </div>
       </div>
 
-      <dl className="divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white">
+      <dl className="divide-y divide-line-soft rounded-xl border border-line bg-surface">
         {fields.map(({ label, value }) => (
           <div key={label} className="flex justify-between gap-4 px-5 py-4 text-sm">
-            <dt className="text-slate-500">{label}</dt>
-            <dd className="text-right font-medium text-slate-900">{value}</dd>
+            <dt className="text-muted">{label}</dt>
+            <dd className="text-right font-medium text-ink">{value}</dd>
           </div>
         ))}
       </dl>

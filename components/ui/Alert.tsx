@@ -4,9 +4,9 @@ interface AlertProps {
 }
 
 const styles = {
-  error: "border-red-200 bg-red-50 text-red-700",
-  success: "border-emerald-200 bg-emerald-50 text-emerald-700",
-  info: "border-sky-200 bg-sky-50 text-sky-700",
+  error: "border-danger-line bg-danger-soft text-danger",
+  success: "border-success-line bg-success-soft text-success",
+  info: "border-primary-soft bg-primary-tint text-primary-strong",
 } as const;
 
 export function Alert({ children, variant = "error" }: AlertProps) {

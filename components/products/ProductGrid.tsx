@@ -13,7 +13,7 @@ export async function ProductGrid({ search, page }: ProductGridProps) {
 
   if (products.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500">
+      <p className="rounded-xl border border-dashed border-line-strong bg-surface p-10 text-center text-muted">
         {search ? `No encontramos productos para "${search}".` : "Aún no hay productos disponibles."}
       </p>
     );
@@ -40,12 +40,12 @@ export function ProductGridSkeleton() {
   return (
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" aria-hidden>
       {Array.from({ length: 8 }, (_, i) => (
-        <div key={i} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-          <div className="aspect-[4/3] animate-pulse bg-slate-200" />
+        <div key={i} className="overflow-hidden rounded-xl border border-line bg-surface">
+          <div className="aspect-[4/3] animate-pulse bg-skeleton" />
           <div className="space-y-3 p-4">
-            <div className="h-4 w-3/4 animate-pulse rounded bg-slate-200" />
-            <div className="h-5 w-1/3 animate-pulse rounded bg-slate-200" />
-            <div className="h-9 animate-pulse rounded-lg bg-slate-200" />
+            <div className="h-4 w-3/4 animate-pulse rounded bg-skeleton" />
+            <div className="h-5 w-1/3 animate-pulse rounded bg-skeleton" />
+            <div className="h-9 animate-pulse rounded-lg bg-skeleton" />
           </div>
         </div>
       ))}

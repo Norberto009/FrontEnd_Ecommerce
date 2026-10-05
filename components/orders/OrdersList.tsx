@@ -23,9 +23,9 @@ export async function OrdersList({ page }: { page: number }) {
 
   if (orders.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500">
+      <p className="rounded-xl border border-dashed border-line-strong bg-surface p-10 text-center text-muted">
         Todavía no tienes compras.{" "}
-        <Link href="/" className="font-medium text-blue-700 hover:underline">
+        <Link href="/" className="font-medium text-primary-strong hover:underline">
           Ir al catálogo
         </Link>
       </p>
@@ -36,13 +36,13 @@ export async function OrdersList({ page }: { page: number }) {
     <div className="space-y-6">
       <ul className="space-y-4">
         {orders.map((order) => (
-          <li key={order.id} className="rounded-xl border border-slate-200 bg-white p-5">
+          <li key={order.id} className="rounded-xl border border-line bg-surface p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="space-y-1">
-                <Link href={`/orders/${order.id}`} className="font-semibold text-slate-900 hover:text-blue-700">
+                <Link href={`/orders/${order.id}`} className="font-semibold text-ink hover:text-primary-strong">
                   Orden #{order.id}
                 </Link>
-                <p className="text-xs text-slate-500">{formatDate(order.created_at)}</p>
+                <p className="text-xs text-muted">{formatDate(order.created_at)}</p>
               </div>
               <div className="flex flex-col items-end gap-2">
                 <OrderStatusBadge status={order.status} />
@@ -50,7 +50,7 @@ export async function OrdersList({ page }: { page: number }) {
               </div>
             </div>
 
-            <ul className="mt-3 space-y-1 border-t border-slate-100 pt-3 text-sm text-slate-600">
+            <ul className="mt-3 space-y-1 border-t border-line-soft pt-3 text-sm text-muted">
               {order.items?.map((item) => (
                 <li key={item.id} className="flex justify-between">
                   <span>
@@ -74,10 +74,10 @@ export function OrdersListSkeleton() {
   return (
     <ul className="space-y-4" aria-hidden>
       {Array.from({ length: 3 }, (_, i) => (
-        <li key={i} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5">
-          <div className="h-5 w-32 animate-pulse rounded bg-slate-200" />
-          <div className="h-4 w-48 animate-pulse rounded bg-slate-200" />
-          <div className="h-4 w-full animate-pulse rounded bg-slate-200" />
+        <li key={i} className="space-y-3 rounded-xl border border-line bg-surface p-5">
+          <div className="h-5 w-32 animate-pulse rounded bg-skeleton" />
+          <div className="h-4 w-48 animate-pulse rounded bg-skeleton" />
+          <div className="h-4 w-full animate-pulse rounded bg-skeleton" />
         </li>
       ))}
     </ul>

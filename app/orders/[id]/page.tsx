@@ -26,24 +26,24 @@ export default async function OrderDetailPage({ params }: PageProps<"/orders/[id
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <Link href="/orders" className="text-sm text-blue-700 hover:underline">
+      <Link href="/orders" className="text-sm text-primary-strong hover:underline">
         ← Volver al historial
       </Link>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Orden #{order.id}</h1>
-          <p className="text-sm text-slate-500">{formatDate(order.created_at)}</p>
+          <p className="text-sm text-muted">{formatDate(order.created_at)}</p>
         </div>
         <OrderStatusBadge status={order.status} />
       </div>
 
-      <ul className="divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white">
+      <ul className="divide-y divide-line-soft rounded-xl border border-line bg-surface">
         {order.items?.map((item) => (
           <li key={item.id} className="flex justify-between gap-4 px-5 py-3 text-sm">
             <span>
               {item.product_name ?? `Producto #${item.product_id}`}{" "}
-              <span className="text-slate-400">
+              <span className="text-faint">
                 × {item.quantity} · {formatPrice(item.unit_price, order.currency)} c/u
               </span>
             </span>

@@ -38,12 +38,12 @@ export default async function ProductPage({ params }: PageProps<"/products/[id]"
 
   return (
     <div className="space-y-6">
-      <Link href="/" className="text-sm text-blue-700 hover:underline">
+      <Link href="/" className="text-sm text-primary-strong hover:underline">
         ← Volver al catálogo
       </Link>
 
-      <article className="grid gap-8 rounded-xl border border-slate-200 bg-white p-6 md:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-100">
+      <article className="grid gap-8 rounded-xl border border-line bg-surface p-6 md:grid-cols-2">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-sunken">
           {product.image_url && (
             <Image
               src={product.image_url}
@@ -58,11 +58,11 @@ export default async function ProductPage({ params }: PageProps<"/products/[id]"
 
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl font-bold tracking-tight">{product.name}</h1>
-          <p className="text-3xl font-bold text-blue-700">{formatPrice(product.price)}</p>
-          <p className="whitespace-pre-line text-slate-600">
+          <p className="text-3xl font-bold text-primary">{formatPrice(product.price)}</p>
+          <p className="whitespace-pre-line text-muted">
             {product.description ?? "Este producto no tiene descripción."}
           </p>
-          <p className={`text-sm ${product.stock > 0 ? "text-emerald-700" : "text-red-600"}`}>
+          <p className={`text-sm ${product.stock > 0 ? "text-success" : "text-danger"}`}>
             {product.stock > 0 ? `${product.stock} unidades en stock` : "Agotado"}
           </p>
           <div className="mt-auto max-w-xs">

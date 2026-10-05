@@ -65,16 +65,16 @@ export function RegisterForm({ next }: { next?: string }) {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:opacity-60"
+        className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-strong disabled:opacity-60"
       >
         {isPending ? "Creando cuenta..." : "Crear cuenta"}
       </button>
 
-      <p className="text-center text-sm text-slate-600">
+      <p className="text-center text-sm text-muted">
         ¿Ya tienes cuenta?{" "}
         <Link
           href={next ? `/login?next=${encodeURIComponent(next)}` : "/login"}
-          className="font-medium text-blue-700 hover:underline"
+          className="font-medium text-primary-strong hover:underline"
         >
           Inicia sesión
         </Link>

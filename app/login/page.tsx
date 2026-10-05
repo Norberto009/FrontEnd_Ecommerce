@@ -13,10 +13,10 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   if (await getCurrentUser()) redirect(next);
 
   return (
-    <div className="mx-auto max-w-md space-y-6 rounded-xl border border-slate-200 bg-white p-8">
+    <div className="mx-auto max-w-md space-y-6 rounded-xl border border-line bg-surface p-8">
       <div className="space-y-1 text-center">
         <h1 className="text-2xl font-bold">Iniciar sesión</h1>
-        <p className="text-sm text-slate-600">Ingresa para ver tus órdenes y confirmar tu compra.</p>
+        <p className="text-sm text-muted">Mejores Productos cada dia.</p>
       </div>
       <LoginForm next={next === "/" ? undefined : next} />
     </div>
