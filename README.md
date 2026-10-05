@@ -56,12 +56,6 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-Producción:
-
-```bash
-npm run build
-npm start
-```
 
 ## Rutas implementadas
 
@@ -105,29 +99,4 @@ Endpoints adicionales usados: `GET /auth/me` (sesión) y `POST /auth/logout` (re
    autenticada** llama a `PUT /orders/{id}/mark-as-paid` (el dueño no puede marcarla). El frontend
    no expone esa acción; solo muestra el estado actualizado en el historial y el detalle.
 
-## Evidencias
 
-### Rendimiento (Lighthouse)
-
-Medido sobre el build de producción (`npm run build && npm start`), con la API local activa.
-Reportes completos en la carpeta [`docs/`](./docs):
-
-| Página | Dispositivo | Rendimiento | Accesibilidad | Buenas prácticas | SEO | LCP | TBT | CLS |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Catálogo `/` | Escritorio ([reporte](./docs/lighthouse-catalogo-escritorio.report.html)) | 100 | 100 | 100 | 100 | 0.7 s | 10 ms | 0 |
-| Catálogo `/` | Móvil ([reporte](./docs/lighthouse-catalogo-movil.report.html)) | 92 | 100 | 100 | 100 | 3.0 s | 110 ms | 0 |
-| Producto `/products/1` | Escritorio ([reporte](./docs/lighthouse-producto-escritorio.report.html)) | 100 | 100 | 100 | 100 | 0.6 s | 0 ms | 0 |
-| Producto `/products/1` | Móvil ([reporte](./docs/lighthouse-producto-movil.report.html)) | 97 | 100 | 100 | 100 | 2.4 s | 100 ms | 0 |
-
-> Los `.html` se abren en el navegador (descárgalos desde GitHub con *Download raw file*; GitHub
-> no los renderiza). Los `.json` incluyen los mismos datos en crudo.
-
-### Endpoints consumidos
-
-`POST /auth/register`, `POST /auth/login`, `POST /auth/logout`, `GET /auth/me`, `GET /products`,
-`GET /products/{id}`, `POST /orders`, `GET /orders/user/{id}`, `GET /orders/{id}`.
-
-### Flujo completo de compra
-
-Captura o video del recorrido catálogo → carrito → checkout → confirmación:
-_agregar en `docs/flujo-compra.png` (o `.mp4`)_.
